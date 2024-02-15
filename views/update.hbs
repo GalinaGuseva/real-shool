@@ -1,0 +1,24 @@
+ <section class="container-fluid bground-a d-flex flex-column justify-content-center">
+ <h2 class="text-secondary mb-2 mx-auto">Редактировать статью</h2>
+  {{#each article}}   
+    <form action="/update" method="POST" class="container-md mx-auto d-flex flex-column justify-content-center">
+      <input type="hidden" name="id" id="" value="{{id}}">
+      
+      <div class="mb-3">
+        <input id="img" type="text" name='img' class="form-control border-0 border-bottom" value="{{img}}" placeholder="Адрес картинки">        
+        </div>
+      <div class="mb-3">
+         <input id="title" type="text" name='title' class="form-control border-0 border-bottom" value="{{title}}" placeholder="Заголовок">         
+      </div>
+      <div class="mb-3">
+         <input id="description" type="text" name='description' class="form-control border-0 border-bottom" value="{{description}}" placeholder="Описание">         
+      </div>
+      <div class="mb-3 h-50">
+         <textarea id="text" type="text" name='text' class="form-control border-0 border-bottom mh" placeholder="Текст">{{text}}</textarea>        
+      </div>
+        <input type="hidden" name="_csrf" value="{{@root.csrf}}"> 
+        <button class="btn-enter" type="submit" name="action">Редактировать</button>
+        
+    </form> 
+     {{/each}}
+     </section>

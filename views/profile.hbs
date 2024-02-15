@@ -1,0 +1,42 @@
+<section class="container-fluid bground">
+    <div class="container-sm flex-column justify-content-center">
+       <h3 class="m-4">Профиль</h3>    
+        <div class="row mx-auto">
+           <div class="col mr-5 mb-3">
+              {{#if user.avatarUrl}}
+               <img src="/{{user.avatarUrl}}" class="avatar" alt="">
+             {{else}}
+               <p>Аватар не установлен</p>
+             {{/if}}
+           </div>
+           <div class="col mt-4">        
+             <p>Ваш e-mail <strong>{{user.email}}</strong></p>
+             <p>Ваш логин <strong>{{user.login}}</strong></p>
+             <h4>Хотите изменить?</h4>
+
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            <div class="mb-3">                 
+                 <input id="name" placeholder="Новый логин" type="text" class="form-control border-0 border-bottom">              
+            </div>
+            <div class="mb-3">
+                <div class="btn form-control border-0 border-bottom">
+                <span>Аватар</span>
+                <input type="file" name="avatar" accept=".png,.jpg,.jpeg,.svg">
+                </div>
+                <div class="form-control border-0">
+                    <input class="form-control border-0 border-bottom" type="text" placeholder="Upload one or more files">
+                </div>
+            </div>
+
+
+            <input type="hidden" name="_csrf" value="{{csrf}}"> 
+
+
+            <button class="btn-enter" type="submit">Изменить</button>
+           
+        </form>
+
+    </div>
+    
+</div>
+</section>

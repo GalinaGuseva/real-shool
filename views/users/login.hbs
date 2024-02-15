@@ -1,0 +1,29 @@
+<section class="container-fluid bground d-flex flex-column justify-content-center">          
+           <h3 class="text-white mt-3 pt-5 mb-3 mx-auto">Вход</h3>            
+           <div id="login" class="container enter d-flex flex-column justify-content-center mx-auto mb-auto rounded-3 bg-white shadow border border-primary">            
+           <form  action="/login" method="POST" class="container-md d-flex flex-column justify-content-center">            
+              <div class="mb-3">
+                  <input id="email" name="email" type="email" placeholder="Email" class="form-control border-0 border-bottom" required>        
+                </div>
+                <div class="mb-3">
+                  <input id="pass" name="pass" type="password" class="form-control border-0 border-bottom" placeholder="Пароль" required>                 
+                </div>
+                 <input type="hidden" name="_csrf" value="{{csrf}}">             
+                 <button type="submit" class="btn-enter" name="action">Войти</button>
+                 <a href="/reset" class="text-danger text-decoration-none mx-auto m-2">Забыли пароль?</a>
+            </form>
+              {{#if error}}
+               <span class="help-text">{{error}}</span>
+            {{/if}}
+            {{#if passerror}}
+               <span class="help-text">{{passerror}}</span>
+            {{/if}}
+               {{#if passsuccess}}
+             <span class="success-text">{{passsuccess}}</span>
+           {{/if}} 
+         {{#if tokenerror}}
+             <span class="help-text">{{tokenerror}}</span>
+           {{/if}}                  
+           <a class="mb-4 mx-auto text-center text-decoration-none text-primary" href="/"><img src="../../images/arrow-left-blue.svg" class="arrow" alt="стрелка"> Вернуться на главную</a>
+        </div>       
+     </section>

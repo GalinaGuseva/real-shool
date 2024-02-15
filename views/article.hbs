@@ -1,0 +1,18 @@
+<section class="container-fluid bground flex-column">
+     {{#each article}}      
+        <div class="container-md mx-auto flex-column my-3 p-4 d-flex">
+           <h3 class="text-white pt-2 mx-auto">{{title}}</h3>
+           <h6 class="text-white my-3 px-3 mx-auto">{{description}}</h6>
+           <div class="container d-flex flex-column justify-content-center mx-auto pb-3 rounded-3 bg-light shadow border border-primary">
+               <img src="{{img}}" alt="фото" class="img-fluid rounded-2 mt-2 mb-5">
+               <p class="text-muted px-3">{{text}}</p>               
+           </div>
+            {{#if @root.isAuth}}      
+               <div class="my-3 mx-auto text-center"><a href="/?id={{id}}">Редактировать</a>
+            {{/if}}            
+            </div>
+              <a class="my-3 mx-auto text-center text-decoration-none text-primary" href="/"><img src="../../images/arrow-left-blue.svg" class="arrow" alt="стрелка"> Вернуться на главную</a>      
+                   
+        </div> 
+     {{/each}}    
+</section>

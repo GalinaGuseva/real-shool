@@ -1,0 +1,19 @@
+<section class="container-fluid bground d-flex flex-column justify-content-center">       
+   <h3 class="text-white mt-3 pt-5 mb-3 mx-auto">Сбросить пароль</h3>
+   <div id="reset" class="container enter d-flex flex-column justify-content-center mx-auto mb-auto rounded-3 bg-white shadow border border-primary">
+    
+       <form  action="/reset" method="POST" class="container-md d-flex flex-column justify-content-center">            
+          <div class="mb-3">
+            <input  id="email" name="email" type="email" class="form-control border-0 border-bottom" placeholder="Укажите Ваш E-mail">         
+          </div>
+          
+        <input type="hidden" name="_csrf" value="{{csrf}}"> 
+        <button type="submit" name="action" class="btn-enter btn-lg">Восстановить&nbsp;доступ</button>
+        </form>
+        {{#if error}}
+         <span class="help-text">{{error}}</span>
+         {{/if}}
+        <p class="text-primary mx-auto mb-3">На вашу почту придёт ссылка для сброса пароля</p>    
+        <a class="mb-4 mx-auto text-center text-decoration-none text-primary" href="/"><img src="../../images/arrow-left-blue.svg" class="arrow" alt="стрелка"> Вернуться на главную</a>
+    </div>       
+</section>

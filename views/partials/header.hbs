@@ -1,0 +1,26 @@
+<nav class="navbar shadow sticky-top header">
+    <div class="container-sm">
+      <div class="d-flex">
+         <a href="/"><img src="../../images/logo1.png" alt="logo" class="m-2" width="32" height="27"></a>
+         <p class="navbar-text px-2 m-0" style="color: white">REAL SCHOOL</p>
+      </div>
+      {{#if isAuth}}
+          
+             {{#if isAdmin}}   
+           <a class="btn btn-outline-light col-auto px-4 mx-4" href="/exit" role="button">Выйти</a>
+             {{else}}
+              <a class="btn px-2 mr-2" href="/admin" role="button">Перейти в личный кабинет</a>
+              <a class="btn btn-outline-light col-auto px-4 mx-4" href="/exit" role="button">Выйти</a>
+             {{/if}}
+      {{else}}
+      
+           {{#if isLogin}}
+            <a class="btn btn-outline-light col-auto px-4" href="/register" role="button">Регистрация</a>
+             {{else}}    
+              <a class="btn btn-outline-light col-auto px-4" href="/login" role="button">Войти</a>
+             {{/if}} 
+      {{/if}}
+    </div> 
+
+    
+     </nav>

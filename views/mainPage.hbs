@@ -1,0 +1,114 @@
+ <section class="container-fluid bground" id="first">
+      
+       <div class="container-sm flex-column justify-content-center">
+         
+          <div class="row mx-auto pt-4">
+             
+            <div class="col mr-5 mb-3 d-flex flex-column">
+              <h1 class="pt-4">Обучающая платформа для&nbsp;веб-разработчиков</h1>
+              <p class="mb-5 small">Мы предоставляем возможность освоить основные навыки в&nbsp;создании web-проектов.  Внутри - более ста видеоуроков</p>
+              <button type="button" class="btn btn-outline-danger btn-f mt-3 mb-5 col-auto">Специальные условия для подписчиков канала "Learn and try!"</button>              
+              <a class="btn btn-lg btn-r mt-3 mb-5 col-auto shadow" href="/register" role="button">Бесплатная регистрация<span class='flare'></span></a> 
+            </div>
+        
+             <div class="col mt-4">
+               {{#if slideArticles.length}} 
+              <div class="slider">
+                 {{#each slideArticles}}
+                <div class="slider__item"> 
+                  <a href="/?artid={{id}}">
+                    <div class="item">                             
+                      <img src="{{img}}" class="img-fluid img-thumbnail" alt="картинка1">
+                      <div class="slider__text">                    
+                        <p>{{title}}</p>                                    
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                {{/each}}                         
+              </div>
+              {{else}}
+                <p>Новостей пока нет</p>
+              {{/if}}
+            </div>
+          </div>
+                                      
+          <div class="container-sm mx-auto pt-5 row row-cols-2 panels">           
+                <div class="col-sm-6 mb-3 mr-2 p-0">
+                  <div class="card panel border-primary shadow">
+                    <div class="card-body">
+                      <h4 class="card-title py-1 text-primary text-center">Технологии</h4>
+                      <h5 class="card-text ln-lg text-center">JS, Node.js, Vue.js,
+                        Native Script</h5>                     
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb-3 mr-0 p-0">
+                  <div class="card panel border-primary shadow ">
+                    <div class="card-body">
+                      <h4 class="card-title py-1 text-danger text-center">Содержание</h4>
+                      <h5 class="card-text ln-lg text-center">7 модулей и более 100
+                        видеоуроков
+                      </h5>                      
+                    </div>
+                  </div>
+                </div>              
+          </div>
+       </div>     
+     </section>
+
+      <!--Второй экран-->
+     <section class="container-fluid bground-2">
+      <div class="container-sm pt-5 d-flex flex-column justify-content-center">
+        <h2 class="pt-5 pb-3 mx-auto text-muted">Блог&nbsp;проекта</h2>
+        <p class="mb-5 mx-auto text-muted">Последние&nbsp;новости, программа&nbsp;обучения текущего&nbsp;потока</p>
+        
+        {{#if articles.length}}    
+        <ul class="blog w-100"> 
+          {{#each articles}}       
+          <li class="card rounded-3 m-3 shadow">
+            {{#if @root.isAuth}}
+              <a href="/?del=yes&id={{id}}" class="close"><img src="../../images/close-black.svg"></a>
+            {{/if}}         
+            <img src="{{img}}" class="card-img-top img-fluid" alt="картинка1">
+            <div class="card-body bg-light">
+              <h5 class="card-title">{{title}}</h5>              
+              <p class="card-text">{{description}}</p>
+               {{#if @root.isAuth}}
+              <p class="mb-0"><a href="/?id={{id}}">Редактировать</a></p>
+              {{/if}}
+              <a href="/?artid={{id}}" class="btn btn-light">Читать дальше</a>
+             
+            </div>
+          </li>
+           {{/each}}
+         {{else}}
+            <p>Записей пока нет</p>
+       {{/if}}
+                   
+        </ul>
+        
+        <nav class="mx-auto mt-4 mb-2" aria-label="Пагинатор">         
+          <ul class="pagination justify-content-center">
+           {{#paginate pagination type="previous"}}
+            <li {{#if disabled}}class="disabled"{{/if}} class="page-item"><a class="page-link" href="/?page={{n}}" tabindex="-1" aria-disabled="true"> &laquo; </a></li>
+           {{/paginate}}
+            
+            {{#paginate pagination type="middle" limit="3"}}
+            <li {{#if active}}class="active text-white bg-transparent"{{/if}} class="page-item" aria-current="page"><a class="page-link" href="/?page={{n}}">{{n}}</a>
+           </li>
+           {{/paginate}}
+          
+          {{#paginate pagination type="next"}}        
+            <li {{#if disabled}}class="disabled"{{/if}} class="page-item"><a class="page-link" href="/?page={{n}}">  &raquo; </a></li>
+          {{/paginate}}           
+          </ul>
+        </nav>
+      
+        <a class="return mb-4 text-decoration-none" href="#first"><img src="../images/arrow-left.svg" class="arrow" alt="стрелка"> Вернуться на главную</a>
+      </div>
+     </section>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>   
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>   
+       <script type="text/javascript" src="js/slick.min.js"></script> 
+       <script type="text/javascript" src="js/script.js"></script> 

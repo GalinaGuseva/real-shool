@@ -1,0 +1,33 @@
+<section class="d-flex">
+  <nav class="navbar menu">   
+    <a href="/profile" role="button"><img src="../../images/person.svg" alt="user" class="mr-3 align-self-center" width="32" height="27"></a>
+    <img src="../../images/book.png" alt="user" class="mr-3 align-self-center" width="32" height="27">
+    <img src="../../images/bell.png" alt="user" class="mr-3 align-self-center" width="32" height="27">
+    <img src="../../images/help.png" alt="user" class="mr-3 align-self-center" width="32" height="27">    
+  </nav>   
+<div class="container-fluid bground-a d-flex">
+  <div class="w-50 mx-2 col">
+    <h5 class="text-secondary p-5 m-3">Привет, {{login}}!</h5>
+     <a href="/profile" role="button"><span class="p-2 m-3 align-self-center">Перейти в профиль</span></a>  
+  </div>
+  <div class="w-50 mt-5 col">
+    {{#if isAuth}}    
+      <h2 class='text-secondary m-4'>Добавить статью</h2>
+       <form action="/admin" method="POST" class="d-flex flex-column justify-content-center">      
+          <div class="mb-3">
+            <input id="img" type="text" name='img' class="form-control border-0 border-bottom" placeholder="Адрес картинки" required>          
+           </div>
+           <div class="mb-3">
+             <input id="title" type="text" name='title' class="form-control border-0 border-bottom" placeholder="Заголовок" required>         
+           </div>
+           <div class="mb-3">
+             <input id="description" type="text" name='description' class="form-control border-0 border-bottom" placeholder="Краткое описание" required>         
+           </div>    
+           <textarea id="text" type="text-area" name='text' class="form-control border-0 border-bottom" placeholder="Текст статьи" required></textarea>          
+           <input type="hidden" name="_csrf" value="{{csrf}}">      
+           <button class="btn-enter" type="submit" name="action">Добавить статью</button>        
+        </form>
+      {{/if}}        
+    </div>
+   </div>       
+ </section>

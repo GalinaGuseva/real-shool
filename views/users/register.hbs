@@ -1,0 +1,32 @@
+<section class="container-fluid bground d-flex flex-column justify-content-center py-4">
+    <h3 class="text-white mt-3 pt-5 mb-2 mx-auto">Регистрация</h3>
+    
+    <div id="reg" class="container enter d-flex flex-column justify-content-center mx-auto mb-3 rounded-3 bg-white shadow border border-primary">
+       
+
+      <form action='/register' method="POST" class="container-md d-flex flex-column justify-content-center">            
+        <div class="mb-3">
+            <input id="login" name="login" type="text" class="form-control border-0 border-bottom" placeholder="Логин" required>           
+        </div>
+        <div class="mb-3">
+            <input id="pass" name="pass" type="password" class="form-control border-0 border-bottom" placeholder="Пароль" required>            
+        </div>
+        <div class="mb-3">
+            <input id="repass" name="repass" type="password" class="form-control border-0 border-bottom" placeholder="Повторите пароль" required>           
+        </div> 
+        <div class="mb-3">
+            <input id="email" name="email" type="email" class="form-control border-0 border-bottom" placeholder="Email" required>            
+        </div>    
+        <input type="hidden" name="_csrf" value="{{csrf}}"> 
+        <button type="submit" name="action" class="btn-enter">Зарегистрироваться</button>
+      </form>      
+         {{#if regsuccess}}
+          <span class="success-text">{{regsuccess}}</span>
+      {{/if}}
+        {{#if regerror}}
+          <span class="help-text">{{regerror}}</span>
+         {{/if}}
+              
+      <a class="mb-4 mx-auto text-center text-decoration-none text-primary" href="/"><img src="../../images/arrow-left-blue.svg" class="arrow" alt="стрелка"> Вернуться на главную</a>
+   </div>       
+</section>
