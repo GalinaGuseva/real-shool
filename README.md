@@ -8,8 +8,6 @@
 
 ### Использовано
 
-Файловая структура проекта построена по технологии Nested БЭМ. При создании применены расширенные возможности HTML и CSS, JavaScript.
-
 Функционал: редактирование данных профиля и аватара пользователя через форму, добавление и удаление фотографий и текстов, пагинация, слайдер, маршрутизация, работа с базой данных MySql.
 
 Технологии: Node.js, Express.js, Express-Handlebars, Flexbox, Positioning Elements, Animation and Transform using CSS, Bootsrtap, File Structure and OOP, Git, Figma
